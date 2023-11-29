@@ -4,11 +4,11 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        GenerateWord();
-        var correctWord = "Hangman";
+        
+        var playingGame = true;
+        var correctWord = GenerateWord(); ;
         var guessCount = 0;
         var charsDisplayed = "";
-        var playingGame = true;
         foreach (var letter in correctWord) charsDisplayed += "_ ";
 
 
@@ -71,7 +71,7 @@ internal class Program
             }
         }
 
-        void GenerateWord()
+        string GenerateWord()
         {
             string[] wordList =
             {
@@ -82,7 +82,7 @@ internal class Program
             };
             Random randomWord = new Random();
             int index = randomWord.Next(wordList.Length);
-            Console.WriteLine(wordList[index]);
+            return wordList[index];
         }
     }
 }
